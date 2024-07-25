@@ -8,7 +8,7 @@ Include the library in your HTML file:
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/Mayank1920/global-custom-editor-devp23@main/global-text-editor.js" crossorigin="anonymous"></script>
-## (INITIALIZATION )
+## (INITIALIZATION IN HTML WEB PAGE)
 <div class="editor_wrapper">
     <div id="{{ADD YOUR CUSTOM TOOLBAR ID}}"></div>
     <div id="{{ADD YOUR CUSTOM EDITOR ID}}"></div>
@@ -19,3 +19,35 @@ Include the library in your HTML file:
         const editor = TextEditorLib.TextEditor.create('{{ADD YOUR CUSTOM EDITOR ID}}', '{{ADD YOUR CUSTOM TOOLBAR ID}}',tools);
     });
 </script>
+
+##(INITIALIZATION IN REACT COMPONENT)
+useEffect(() => {
+    // Initialize the text editor when the component is mounted
+    const initializeEditor = () => {
+        if (window.TextEditorLib) {
+            let tools = ['text','paragraph','heading', 'script', 'font', 'highlight', 'list', 'link', 'align','image','table','slash'];
+            window.TextEditorLib.TextEditor.create(editorRef.current.id, toolbarRef.current.id);
+        }
+    };
+
+    // Check if the script is already loaded
+    if (window.TextEditorLib) {
+        initializeEditor();
+    } else {
+        // Wait for the script to load if not already loaded
+        globalEditorScript = document.createElement('script');
+        globalEditorScript.src = "https://cdn.jsdelivr.net/gh/Mayank1920/global-custom-editor-devp23@main/global-text-editor.js";
+        globalEditorScript.onload = initializeEditor;
+        document.body.appendChild(globalEditorScript);
+    }
+
+    return ()=>{
+        if(globalEditorScript)
+            globalEditorScript.remove();
+    }
+}, [editorContainerRef]);
+
+<div ref={editorContainerRef} class="editor_wrapper">
+    <div id="{{ADD YOUR CUSTOM TOOLBAR ID}}"></div>
+    <div id="{{ADD YOUR CUSTOM EDITOR ID}}"></div>
+</div>
