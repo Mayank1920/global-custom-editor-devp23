@@ -15,8 +15,12 @@ Include the library in your HTML file:
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        let tools = ['text','paragraph','heading', 'script', 'font', 'highlight', 'list', 'link', 'align','image','table','slash'];
-        const editor = TextEditorLib.TextEditor.create('{{ADD YOUR CUSTOM EDITOR ID}}', '{{ADD YOUR CUSTOM TOOLBAR ID}}',tools);
+        let options = {
+                tools:['revert','text','paragraph','heading', 'script', 'font', 'highlight', 'list', 'link', 'align','image','table','slash'],
+                width:1890,
+                height:848,
+            }
+        const editor = TextEditorLib.TextEditor.create('{{ADD YOUR CUSTOM EDITOR ID}}', '{{ADD YOUR CUSTOM TOOLBAR ID}}',options);
     });
 </script>
 
@@ -25,8 +29,12 @@ useEffect(() => {
     // Initialize the text editor when the component is mounted
     const initializeEditor = () => {
         if (window.TextEditorLib) {
-            let tools = ['text','paragraph','heading', 'script', 'font', 'highlight', 'list', 'link', 'align','image','table','slash'];
-            window.TextEditorLib.TextEditor.create(editorRef.current.id, toolbarRef.current.id);
+            let options = {
+                tools:['revert','text','paragraph','heading', 'script', 'font', 'highlight', 'list', 'link', 'align','image','table','slash'],
+                width:1890,
+                height:848,
+            }
+            window.TextEditorLib.TextEditor.create(editorRef.current.id, toolbarRef.current.id,options);
         }
     };
 
