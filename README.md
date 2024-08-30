@@ -7,7 +7,7 @@ A reusable text editor library for web applications.
 Include the library in your HTML file:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Mayank1920/global-custom-editor-devp23@main/global-text-editor.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/Mayank1920/global-custom-editor-devp23@main/global-text-editor-v1.4.js" crossorigin="anonymous"></script>
 ## (INITIALIZATION IN HTML WEB PAGE)
 <div class="editor_wrapper">
     <div id="{{ADD YOUR CUSTOM TOOLBAR ID}}"></div>
