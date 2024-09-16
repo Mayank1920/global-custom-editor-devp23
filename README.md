@@ -36,7 +36,7 @@ useEffect(() => {
                 isToolBarAtBottom:true,
                 isTestingDemo:true,
             }
-            window.TextEditorLib.TextEditor.create(iframeRef.current.id,editorRef.current.id, toolbarRef.current.id,options);
+            window.TextEditorLib.TextEditor.create('editor_iframe','editor','toolbar',options);
         }
     };
 
@@ -57,7 +57,4 @@ useEffect(() => {
     }
 }, [editorContainerRef]);
 
-<div ref={editorContainerRef} class="editor_wrapper">
-    <div id="{{ADD YOUR CUSTOM TOOLBAR ID}}"></div>
-    <div id="{{ADD YOUR CUSTOM EDITOR ID}}"></div>
-</div>
+<iframe id="editor_iframe" ref="iframeRef" style="width:100%; height:100%;"></iframe>
